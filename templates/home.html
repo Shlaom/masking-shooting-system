@@ -2,7 +2,52 @@
 {% load static %}
 {% block content %}
 
+    <script>
+        function masking_on(){
+            $.ajax({
+                url : "{% url 'masking:masking_on' %}",
+                type : 'GET',
+                dataType: 'json',
+                data : { 'param' : 1}
+            });
+        };
+        function masking_off(){
+            $.ajax({
+                url : "{% url 'masking:masking_off' %}",
+                type : 'GET',
+                dataType: 'json',
+                data : { 'param' : 0}
+            });
+        };
+        function mosaic(){
+            $.ajax({
+                url : "{% url 'masking:mode_mosaic' %}",
+                type : 'GET',
+                dataType: 'json',
+                data : { 'param' : 1}
+            });
+        };
 
+        function imaging(){
+            $.ajax({
+                url : "{% url 'masking:mode_imaging' %}",
+                type : 'GET',
+                dataType: 'json',
+                data : { 'param' : 3}
+            });
+        };
+        function test(){
+            $.ajax({
+                url : "{% url 'masking:mode_test' %}",
+                type : 'GET',
+                dataType: 'json',
+                data : { 'param' : 2}
+            });
+        };
+
+    </script>
+
+<div> {{hi}} </div>
 
 <body align="center">
     <h2>Video</h2>
@@ -12,19 +57,18 @@
             <tr>
                 <td>
                     <img src="{% url 'masking:video' %}" height = "500px" width = "800px">
-<!--                        <img src="https://cdn-icons-png.flaticon.com/128/3914/3914403.png" height = "500px" width = "800px">-->
                 </td>
             </tr>
 
         </table>
         <div class="btn-group btn-group-lg" role="group" aria-label="Basic outlined example">
-          <button type="button" onclick = "location.href='{% url 'masking:mode_mosaic' %}'" class="btn btn-outline-light">Mosaic</button>
-          <button type="button" onclick = "location.href='{% url 'masking:mode_blur' %}'" class="btn btn-outline-light">Blur</button>
-          <button type="button" onclick = "location.href='{% url 'masking:mode_imaging' %}'" class="btn btn-outline-light">Image</button>
+          <button type="button" onclick = "mosaic()" class="btn btn-outline-light">Mosaic</button>
+          <button type="button" onclick = "test()" class="btn btn-outline-light">Blur</button>
+          <button type="button" onclick = "imaging()" class="btn btn-outline-light">Image</button>
         </div>
         {% if user.is_admin %}
-        <a href="{% url 'masking:masking_on' %}" class="btn btn-lg btn-secondary fw-bold border-white bg-blue" style="margin-left: 150px;">On</a>
-        <a href="{% url 'masking:masking_off' %}" class="btn btn-lg btn-secondary fw-bold border-white bg-black" style="margin-right: -300px;">Off</a>
+        <a class="btn btn-lg btn-secondary fw-bold border-white bg-blue" onclick = "masking_on()" style="margin-left: 150px;">On</a>
+        <a class="btn btn-lg btn-secondary fw-bold border-white bg-black" onclick = "masking_off()" style="margin-right: -300px;">Off</a>
         {% endif %}
 
     </div>

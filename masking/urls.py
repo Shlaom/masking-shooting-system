@@ -24,7 +24,10 @@ urlpatterns = [
 
     path('mode_mosaic', views.mode_mosaic, name='mode_mosaic'),
 
-    path('mode_blur', views.mode_blur, name='mode_blur'),
+
 
     path('mode_imaging', views.mode_imaging, name='mode_imaging'),
+
+    path('mode_test', views.mode_test, name='mode_test'),
+
 ]

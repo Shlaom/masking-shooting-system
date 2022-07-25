@@ -1,7 +1,9 @@
+import json
+
 from django.shortcuts import render
 
 from django.views.decorators import gzip
-from django.http import StreamingHttpResponse
+from django.http import StreamingHttpResponse, HttpResponse, JsonResponse
 import threading
 
 
@@ -42,6 +44,7 @@ class FrameProcessor(object):
         self.imgs = []
 
         self.video = cv2.VideoCapture('rtmp://52.79.67.16:1935/live/test')
+        # self.video = cv2.VideoCapture(0)
         (self.grabbed, self.frame) = self.video.read()
         threading.Thread(target=self.update, args=()).start()
 
@@ -354,27 +357,39 @@ def mypage(request):
 def masking_on(request):
     global mode
     mode = 1
-    return render(request, 'home.html')
+    s = request.GET.get('param')
+    print(s)
+    return HttpResponse(None, content_type='application/json')
 
 def masking_off(request):
     global mode
     mode = 0
-    return render(request, 'home.html')
+    s = request.GET.get('param')
+    print(s)
+    return HttpResponse(None, content_type='application/json')
 
 def mode_mosaic(request):
     global sign
     sign = 1
-    return render(request, 'home.html')
-
-def mode_blur(request):
-    global sign
-    sign = 2
-    return render(request, 'home.html')
+    s = request.GET.get('param')
+    print(s)
+    return HttpResponse(None, content_type='application/json')
 
 def mode_imaging(request):
     global sign
     sign = 3
-    return render(request, 'home.html')
+
+    s = request.GET.get('param')
+    print(s)
+    return HttpResponse(None, content_type='application/json')
+
+def mode_test(request):
+    global sign
+    sign = 2
+    s = request.GET.get('param')
+    print(s)
+    return HttpResponse(None, content_type='application/json')
+    # return HttpResponse(json.dumps(c), content_type="application/json")
 
 mode = 1
 sign = 3
