@@ -36,3 +36,19 @@
 이 저장소에는 `model/keras/facenet_keras.h5` 파일이 포함되어 있습니다.
 
 본 저장소 작성자는 해당 사전 학습 가중치 파일의 저작권을 주장하지 않습니다.
+
+## 6. mysqlclient wheel file
+
+This repository includes the following wheel file:
+
+- `mysqlclient-1.4.6-cp36-cp36m-win_amd64.whl`
+
+Reference:
+- https://pypi.org/project/mysqlclient/1.4.6/
+- https://github.com/PyMySQL/mysqlclient
+
+License:
+- GNU General Public License (GPL), as indicated by the upstream project.
+
+Note:
+- Because this repository directly includes the wheel file, users should review the upstream mysqlclient license before redistributing this file.
