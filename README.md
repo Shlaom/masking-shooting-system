@@ -39,3 +39,15 @@
 김강섭 https://github.com/eneleh758 
 
 윤예진 https://github.com/yejin603
+
+## 라이선스 및 외부 자산 고지
+
+이 저장소는 대학 졸업과제 용도로 작성되었습니다.
+
+본 프로젝트는 아래의 외부 소프트웨어 및 모델 파일을 사용하거나 참조합니다.
+
+- FaceNet 참고 구현: `davidsandberg/facenet` (MIT License)
+- OpenCV (`opencv-python`) (Apache License 2.0)
+- 얼굴 검출 모델: `face_detector/res10_300x300_ssd_iter_140000.caffemodel`
+
+자세한 내용은 `THIRD_PARTY_NOTICES.md`를 참고해 주세요.
